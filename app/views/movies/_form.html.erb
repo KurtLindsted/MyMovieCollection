@@ -26,13 +26,11 @@
     <%= form.text_field :imdbID, :readonly => form.object.persisted? %>
   </div>
   <div class="field">
-    <span>Upload image</span>
-    <br>
-  </div>  
-  <fieldset>
-    <%= form.label :image, 'Upload picture' %>
+  <fieldset style="margin:8px 0 10px 0;width:200px">
+    <%= form.label :image, 'Upload billede' %>
     <%= form.file_field :image%>
   </fieldset>
+  </div>  
 
  
 
