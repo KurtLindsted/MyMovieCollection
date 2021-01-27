@@ -1,0 +1,56 @@
+<div style="width:100%;display: table;background-color:lightblue"> 
+<div style="display: table-row">
+    <div class="show" style="margin:1px">
+      <p id="notice"><%= notice %></p>
+
+      <p>
+        <strong>Tittel:</strong>
+        <%= @movie.title %>
+      </p>
+
+      <p>
+        <strong>Egen beskrivels:</strong>
+        <br/>
+        <%= @movie.description %>
+      </p>
+      <%if @movie.image_filename != nil%>
+        <div>
+          <img src=<%="/images/#{@movie.id}/#{@movie.image_filename}" %> class="imgUploaded" />
+        </div>
+      <%end%>
+      <p>
+        <div style="font-size:10px">
+          Imdb reference:
+          <%= @movie.imdbID %>
+        </div>
+      </p>
+    </div>
+
+    <% if @apiResult != nil %>
+      <div class="imdbinfoPoster" >
+          <span style="padding:2px;font-size:16px"><%=@apiResult.title%></span>
+          <%if @apiResult.poster != nil && @apiResult.poster != "N/A" %>
+              <img src=<%=@apiResult.poster%> class="img" />
+          <%end%> 
+      </div>
+      <div class="imdbinfoPlot">
+        <div style="padding:20px">
+            <span><%=@apiResult.plot%></span>
+        </div>
+        <div class="actors">
+          <span>Skuespiller</span>
+          <ul>
+            <% if @apiResult.actors != nil%> 
+              <% @apiResult.actors.split(',').each do |actor| %>
+                <li>
+                  <%=actor %>
+                </li>
+              <%end%>
+            <%end%>
+          </ul>  
+      </div>
+    <% end %>
+  </div>
+</div>
+<%= link_to 'Edit', edit_movie_path(@movie) %> |
+<%= link_to 'Back', movies_path %>
