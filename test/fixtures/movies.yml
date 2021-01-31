@@ -1,10 +1,8 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
+  title: Godfather
   description: MyText
-  imdbID: MyString
-
 two:
   title: MyString
   description: MyText
