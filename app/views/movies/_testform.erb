@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4><%=@header%>  </h4>
+                </div>
+                <div class="card-body">
+                    <%= render 'form', movie: @movie %>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <%= render 'api_lookup', movie: @api_result %>
+        </div>
+    </div>
+</div>
+
+<%= link_to 'Back', movies_path, class:"btn btn-secondary m-2" %>
+<%= link_to 'Slet', @movie, method: :delete, data: { confirm: 'Er du sikker?' }, class: "btn btn-danger" %>

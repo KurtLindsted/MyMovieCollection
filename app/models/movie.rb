@@ -1,24 +1,24 @@
+
 class Movie < ApplicationRecord
-    validates :title, presence: true
-    mount_uploader :file, ImageUploader
-    serialize :file, JSON # If you use SQLite, add this line.
+  validates :title, presence: true
+  mount_uploader :file, ImageUploader
+  serialize :file, JSON # If you use SQLite, add this line.
 
-    attr_accessor :image
+  attr_accessor :image, :choosenTitle
 
-    after_save :save_image, if: :image
+  after_save :save_image, if: :image
 
-    def save_image
-        filename = image.original_filename
-        folder = "public/images/#{id}"
-        FileUtils::mkdir_p folder
+  def save_image
+    filename = image.original_filename
+    folder = "public/images/#{id}"
+    FileUtils::mkdir_p folder
 
-        f= File.open File.join(folder, filename), "wb"
-        f.write image.read()
-        f.close
+    f= File.open File.join(folder, filename), "wb"
+    f.write image.read()
+    f.close
 
-        self.image = nil
-        update image_filename: filename
-
-    end
+    self.image = nil
+    update image_filename: filename
+  end
 
 end
