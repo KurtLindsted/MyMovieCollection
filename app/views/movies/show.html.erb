@@ -23,40 +23,10 @@
             </div>
         </div>
         <% if @api_result %>
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                  Info fra Imdb
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <%=@api_result.title%>
-                  </h5>
-                  <%if @api_result.poster && @api_result.poster != "N/A" %>
-                    <%= image_tag @api_result.poster ,style:"width:300px", class: "p-2"%>
-                  <%end%> 
-                  <h5 class="card-title">Plot</h5>
-                  <div class="card-text">
-                    <%=@api_result.plot%>
-                    
-                  </div>
-                  <div class="card-text">
-                  <h5 class="card-title mt-3">Skuespiller</h5>
-
-                    <ul>
-                      <% if @api_result.actors%> 
-                        <% @api_result.actors.split(',').each do |actor| %>
-                          <li>
-                            <%=actor %>
-                          </li>
-                        <%end%>
-                      <%end%>
-                    </ul> 
-                  </div>
-                </div>
-            </div>
-        </div>
-    <% end %>
+          <div class="col-md-6">
+            <%= render 'api_lookup', api_result: @api_result %>
+          </div>
+        <% end %>
 
     </div>
 </div>

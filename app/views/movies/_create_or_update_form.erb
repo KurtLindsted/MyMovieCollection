@@ -11,7 +11,9 @@
             </div>
         </div>
         <div class="col-md-6">
-            <%= render 'api_lookup', api_result: api_result %>
+            <%if @api_result%>
+                <%= render 'api_lookup', api_result: @api_result %>
+            <%end%>
         </div>
     </div>
 </div>

@@ -27,6 +27,10 @@ class MoviesController < ApplicationController
   # GET /movies/1/edit
   def edit
     @header = "Rediger film"
+    if(@movie.imdbID != "")
+      omdbapi = Omdbapi.new
+      @api_result = omdbapi.GetMovieById(@movie.imdbID)
+    end
   end
 
   # POST /movies or /movies.json
@@ -38,10 +42,7 @@ class MoviesController < ApplicationController
       result = omdbapi.GetMovie(@movie.title)
       if result.error == nil
         @movie.imdbID = result.imdb_id
-        # @movie.imdbID = "tt0353496"
         @api_result = result
-      else
-        @movie.imdbID = "tt0068646"
       end
     end
 

@@ -1,21 +1,22 @@
 <div class="card">
-  <div class="card-header">
-        <h4>Opslag Imdb</h4>
-  </div>
-  <div class="card-body">
-    <% if api_result %>
-    <div class="imdbinfoPoster" >
-        <span style="padding:2px;font-size:16px"><%=api_result.title%></span>
-        <%if api_result.poster && api_result.poster != "N/A" %>
-            <img src=<%=api_result.poster%> class="img" />
-        <%end%> 
+    <div class="card-header">
+        Info fra Imdb
     </div>
-    <div class="imdbinfoPlot">
-        <div style="padding:20px">
-            <span><%=api_result.plot%></span>
+    <div class="card-body">
+        <h5 class="card-title">
+        <%=api_result.title%>
+        </h5>
+        <%if api_result.poster && api_result.poster != "N/A" %>
+        <%= image_tag api_result.poster ,style:"width:300px", class: "p-2"%>
+        <%end%> 
+        <h5 class="card-title">Plot</h5>
+        <div class="card-text">
+        <%=api_result.plot%>
+        
         </div>
-        <div class="actors">
-        <span>Skuespiller</span>
+        <div class="card-text">
+        <h5 class="card-title mt-3">Skuespiller</h5>
+
         <ul>
             <% if api_result.actors%> 
             <% api_result.actors.split(',').each do |actor| %>
@@ -24,10 +25,7 @@
                 </li>
             <%end%>
             <%end%>
-        </ul>  
+        </ul> 
+        </div>
     </div>
-    <% end %>
-  </div>
 </div>
-
-
