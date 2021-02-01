@@ -3,22 +3,22 @@
         <h4>Opslag Imdb</h4>
   </div>
   <div class="card-body">
-    <% if @api_result %>
+    <% if api_result %>
     <div class="imdbinfoPoster" >
-        <span style="padding:2px;font-size:16px"><%=@api_result.title%></span>
-        <%if @api_result.poster && @api_result.poster != "N/A" %>
-            <img src=<%=@api_result.poster%> class="img" />
+        <span style="padding:2px;font-size:16px"><%=api_result.title%></span>
+        <%if api_result.poster && api_result.poster != "N/A" %>
+            <img src=<%=api_result.poster%> class="img" />
         <%end%> 
     </div>
     <div class="imdbinfoPlot">
         <div style="padding:20px">
-            <span><%=@api_result.plot%></span>
+            <span><%=api_result.plot%></span>
         </div>
         <div class="actors">
         <span>Skuespiller</span>
         <ul>
-            <% if @api_result.actors%> 
-            <% @api_result.actors.split(',').each do |actor| %>
+            <% if api_result.actors%> 
+            <% api_result.actors.split(',').each do |actor| %>
                 <li>
                 <%=actor %>
                 </li>
