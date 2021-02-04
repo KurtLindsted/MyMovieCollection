@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'firefox', '~> 0.1.0'
 gem 'bootstrap', '~> 4.6'
 gem 'jquery-rails'
-ruby '2.7.2'
+ruby '2.7.0'
 gem 'omdb-api'
 gem 'carrierwave', '~> 2.1.0'
 gem 'rails', '~> 6.1.1'
